@@ -1,0 +1,2 @@
+#!/bin/bash
+python tools/candle_sync.py --once --symbols BTCUSDT --timeframes 1d,4h,1h --start-date 2018-01-01

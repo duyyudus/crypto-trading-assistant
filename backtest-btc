@@ -1,0 +1,2 @@
+source .venv/bin/activate && LOG_LEVEL=INFO python backtest/backtest_engine.py --symbol BTCUSDT --strategy beginner_strategy \
+--limit 3000 --lookahead 24 --take-profit 0.02 --trailing-stop 0.01

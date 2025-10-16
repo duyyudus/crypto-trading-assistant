@@ -1,0 +1,27 @@
+#!/bin/bash
+# Initialize database for the crypto trading assistant
+
+set -e  # Exit on any error
+
+# Get the directory where this script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Check if .env file exists
+if [ ! -f "$SCRIPT_DIR/.env" ]; then
+    echo "Error: .env file not found in project root"
+    echo "Please copy .env.example to .env and configure your database settings"
+    exit 1
+fi
+
+echo "🚀 Initializing database for crypto trading assistant..."
+echo "Project directory: $SCRIPT_DIR"
+
+# Run the Python init script
+cd "$SCRIPT_DIR"
+source .venv/bin/activate && python tools/init_db.py
+
+echo "✅ Database initialization complete!"
+echo ""
+echo "You can now:"
+echo "  • Sync candle data: python tools/candle_sync.py"
+echo "  • Run the trading bot: python main.py"
